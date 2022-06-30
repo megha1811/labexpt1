@@ -65,7 +65,7 @@ void main()
 			case 3:
 			{
 				c=0;
-				t=1;
+				t=0;
 				pos=head;
 				printf("Enter data to search: ");
 				scanf("%d",&k);
@@ -76,12 +76,12 @@ void main()
 					pos=pos->next;
 					if(temp==k)
 					{
-						t=0;
+						t=1;
 						printf("Element is at position %d",c);
 						break;
 					}
 				}
-				if(t)
+				if(t==0)
 					printf("Element not found");
 				break;
 			}
@@ -100,7 +100,8 @@ void main()
 					free(tem);
 				}
 				else if(entry==s-1)
-				{for(i=0;i<entry-1;i++)
+				{
+					for(i=0;i<entry-1;i++)
 					{
 						tem=tem->next;
 					}
@@ -108,7 +109,8 @@ void main()
 					tem=tail->next;
 					tail->next=NULL;
 					printf("Element deleted is %d",tem->data);
-					free(tem);}
+					free(tem);
+				}
 				else
 				{
 					for(i=0;i<entry-1;i++)
